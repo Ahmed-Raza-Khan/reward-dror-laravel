@@ -1,0 +1,93 @@
+@extends('layouts.app')
+
+@section('title', 'Reward Dror - Edit User Profile')
+
+
+@section('content')
+    <div class="pt-25 flex min-h-screen bg-[#F8F9FA]">
+        <aside class="w-64 bg-white border-r border-gray-100 flex flex-col fixed h-full left-0">
+            <nav class="flex-1 px-0 py-6 space-y-3 side-navbar-buttons-all">
+                <a href="{{ url('/dashboard') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/dashboard-dark-icon.svg') }}" alt="dashboard" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+                <a href="{{ url('/rewards-management-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/rewards-menagement-icon.svg') }}" alt="reawards" width="23" height="23">
+                    <span>Rewards Management</span>
+                </a>
+                <a href="{{ url('/fee-configration-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/fee-configuration-icon.svg') }}" alt="fee" width="23" height="23">
+                    <span>Fee Configuration</span>
+                </a>
+                <a href="{{ url('/system-settings-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/system-settings-icon.svg') }}" alt="system" width="23" height="23">
+                    <span>System Settings</span>
+                </a>
+                <a href="{{ url('/business-api-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/bussiness-api.svg') }}" alt="bussiness" width="23" height="23">
+                    <span>Business API</span>
+                </a>
+                <a href="{{ url('/transaction-list-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/transaction-icon.svg') }}" alt="transaction" width="23" height="23">
+                    <span>Transactions</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="ml-64 flex-1 p-8 business-api-main-heading">
+            <div class="bg-white w-full max-w-full p-8 rounded-lg shadow-sm min-h-[600px]">
+                <div class="flex items-center gap-4 mb-8">
+                    <button>
+                        <a href="{{ url('/user-profile') }}"><img src="{{ asset('assets/images/left-arrow-back.svg') }}" alt="arrow"></a>
+                    </button>
+                    <h1 class="text-[35px] font-medium text-[#333333]">Edit Profile</h1>
+                </div>
+
+                <div class="relative w-35 h-35 mb-10">
+                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-[#DC6C09]">
+                        <img src="{{ asset('assets/images/profile-image-men.png') }}" alt="Profile" class="w-full h-full object-cover">
+                    </div>
+                    <button class="absolute bottom-0 right-0 left-19">
+                        <img src="{{ asset('assets/images/camera-profile-user.jpeg') }}" alt="camera-user" class="w-13 h-13">
+                    </button>
+                </div>
+
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 mt-12">
+                    <div class="relative space-y-1">
+                        <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1 hover:text-[#222222]">First Name <span class="text-[#FF0000]">*</span></label>
+                        <input type="text" placeholder="Bella" class="w-full py-3 px-5 border border-[#D7D7D7] rounded-full text-[#333333] hover:text-[#0F0F0F] hover:font-medium hover:text-[16px]">
+                    </div>
+
+                    <div class="relative space-y-1">
+                        <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">Last Name <span class="text-[#FF0000]">*</span></label>
+                        <input type="text" placeholder="Edward" class="w-full py-3 px-5 border border-[#D7D7D7] rounded-full text-[#333333] hover:text-[#0F0F0F] hover:font-medium hover:text-[16px]">
+                    </div>
+
+                    <div class="relative w-full">
+                        <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">Phone No <span class="text-[#FF0000]">*</span></label>
+                        <div class="relative flex items-center">
+                            <div class="absolute left-4 flex items-center gap-2 pointer-events-none">
+                                <img src="{{ asset('assets/images/country-flag-aquare.png') }}" alt="US Flag" class="w-7 h-5">
+                                <span class="text-[15px] text-[#707C8B] font-medium">+101</span>
+                                <div class="h-6 w-[1px] bg-[#D1D5DB] ml-1"></div>
+                            </div>
+                            <input type="number" placeholder="Enter your phone number" 
+                            class="w-full h-14 pl-28 pr-4 border border-[#E5E7EB] rounded-full text-[15px] focus:outline-none focus:border-blue-400 placeholder-[#999999]">
+                        </div>
+                    </div>
+
+                    <div class="relative space-y-1">
+                        <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">Email Address <span class="text-[#FF0000]">*</span></label>
+                        <input type="email" placeholder="elbert@gmail.com" class="w-full py-3 px-5 border border-[#D7D7D7] rounded-full text-[#333333] hover:text-[#0F0F0F] hover:font-medium hover:text-[16px]">
+                    </div>
+
+                    <div class="md:col-span-2 pt-3 mt-1">
+                        <button type="submit" class="text-white px-12 py-3 rounded-full font-medium shadow-md shadow-orange-200 hover:from-orange-500 hover:to-orange-600 transition-all system-settings-background-button">
+                            Update
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+@endsection

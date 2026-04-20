@@ -1,0 +1,209 @@
+@extends('layouts.app')
+
+@section('title', 'Reward Dror - Fee Configuration')
+
+@section('content')
+    <div class="pt-25 flex min-h-screen bg-[#F8F9FA]">
+        <aside class="w-64 bg-white border-r border-gray-100 flex flex-col fixed h-full left-0">
+            <nav class="flex-1 px-0 py-6 space-y-3 side-navbar-buttons-all">
+                <a href="{{ url('/dashboard') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/dashboard-dark-icon.svg') }}" alt="dashboard" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+                <a href="{{ url('/rewards-management-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/rewards-menagement-icon.svg') }}" alt="reawards" width="23" height="23">
+                    <span>Rewards Management</span>
+                </a>
+                <a href="{{ url('/fee-configration-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#0077B6] text-white transition-colors">
+                    <img src="{{ asset('assets/images/fee-configration-light.svg') }}" alt="fee" width="23" height="23">
+                    <span class="active">Fee Configuration</span>
+                </a>
+                <a href="{{ url('/system-settings-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/system-settings-icon.svg') }}" alt="system" width="23" height="23">
+                    <span>System Settings</span>
+                </a>
+                <a href="{{ url('/business-api-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/bussiness-api.svg') }}" alt="bussiness" width="23" height="23">
+                    <span>Business API</span>
+                </a>
+                <a href="{{ url('/transaction-list-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/transaction-icon.svg') }}" alt="transaction" width="23" height="23">
+                    <span>Transactions</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="ml-64 flex-1 p-8">
+            <div class="max-w-full mx-auto bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                <h2 class="text-[35px] font-medium text-[#333333] mb-6 fee-configration-main-heading">Fee Configuration</h2>
+                
+                <div class="bg-[#E2F7FF33] border border-[#0077B680] rounded-md p-6 mb-10">
+                    <div class="flex flex-wrap items-end gap-4 mb-4">
+                        <div class="relative flex-1 min-w-[200px]">
+                            <label class="absolute -top-2.5 left-4 bg-[#FFFFFF] px-1 text-[14px] font-bold text-[#707C8B] z-1 fee-configration-main-heading">Fee Percentage</label>
+                            <input id="feeInput" type="text" placeholder="10 %" class="w-full px-4 py-4 border border-[#D7D7D7] hover:border-[#0077B6] rounded-full bg-[#FFFFFF] outline-none text-[13px] text-[#8E8F90] font-regular fee-configration-main-heading">
+                        </div>
+
+                        <div class="relative flex-1 min-w-[200px]">
+                            <label class="absolute -top-2.5 left-4 bg-[#FFFFFF] px-1 text-[14px] font-bold text-[#707C8B] z-1 fee-configration-main-heading">Min/max validation</label>
+                            <input id="validationInput" type="text" placeholder="10 to 150 euro" class="w-full px-4 py-4 border border-[#D7D7D7] hover:border-[#0077B6] rounded-full bg-[#FFFFFF] outline-none text-[13px] text-[#8E8F90] font-regular fee-configration-main-heading">
+                        </div>
+
+                        <button onclick="saveFeeChanges()" class="main-button-background-fee-config text-white text-[18px] font-semibold py-3 px-8 rounded-full transition duration-200">
+                            Save Changes
+                        </button>
+                        <button onclick="toggleModal()" class="bg-[#E2F7FF33] border border-[#0077B680] text-[#0077B6] font-semibold py-3 px-8 rounded-full transition duration-200">
+                            Preview Screen
+                        </button>
+                    </div>
+
+                    <div class="inline-block bg-[#E2F7FF] border border-[#D7D7D7] px-4 py-2 rounded-xl">
+                        <p class="text-[#707C8B] fee-configration-main-heading">
+                            <span class="font-bold text-[14px] text-[#707C8B]">Reward Calculation Will Be :</span> 
+                            <span class="font-regular text-[16px] ml-2">$100 reward → 200 Ponnits</span>
+                        </p>
+                    </div>
+                </div>
+
+                <h2 class="text-[30px] font-semibold text-[#333333] mb-6 fee-configration-main-heading">Fee Change history</h2>
+
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex items-center gap-3">
+                            <span class="text-[#000000] text-[16px] font-regular">Show</span>
+                            <div class="relative">
+                                <select class="appearance-none border border-[#FF7F32] rounded-md px-4 py-1 pr-5 text-[14px] font-regular text-[#000000] focus:outline-none">
+                                    <option>5</option>
+                                    <option>10</option>
+                                </select>
+                                <div class="absolute right-2 top-6 -translate-y-1/2 pointer-events-none">
+                                    <svg class="w-4 h-4 text-[#000000]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="relative">
+                        <input type="text" id="searchInput" placeholder="Search" class="pl-5 pr-10 py-2 border border-[#FF7F32] rounded-lg text-[#000000] text-[15px] focus:outline-none focus:ring-1 focus:ring-[#FF7F32] w-64">
+                        <span class="absolute right-4 top-3 text-gray-400">
+                            <img src="assets/images/search-icon-nav-dark.svg" alt="" class="h-4 w-4">
+                        </span>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full border-separate border-spacing-y-3">
+                        <thead>
+                            <tr class="text-left text-[14px] font-regular text-[#000000] capitalized fee-configration-main-heading">
+                                <th class="px-6 py-2">S.NO</th>
+                                <th class="px-6 py-2">Fee Percentage</th>
+                                <th class="px-6 py-2">Min/Max Validation</th>
+                                <th class="px-6 py-2">Last Date Activated</th>
+                                <th class="px-6 py-2">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-white p-1 flex items-center justify-between">
+                    <p class="text-[#000000] text-[16px] font-regular">Showing 1 to 10 from 60 entries</p>
+                    <div class="flex items-center border border-gray-100">
+                        <button class="px-5 py-3 rounded text-[16px] text-medium pagination-hover-background hover:text-[#FFFFFF]">Previous</button>
+                            <a href="/fee-configration-main"><button class="px-5 py-3 rounded text-[17px] font-regular text-white pagination-hover-background-null">1</button></a>
+                                <span class="px-2 text-[#000000]">|</span>
+                            <a href="/fee-configration-main"><button class="px-5 py-3 rounded text-[17px] font-regular text-[#000000] hover:text-[#FFFFFF] pagination-hover-background">2</button></a>
+                                <span class="px-2 text-[#000000]">|</span>
+                            <a href="/fee-configration-main"><button class="px-5 py-3 rounded text-[17px] font-regular text-[#000000] hover:text-[#FFFFFF] pagination-hover-background">3</button></a>
+                                <span class="px-2 text-[#000000]">|</span>
+                        <button class="px-5 py-3 rounded text-[16px] text-medium pagination-hover-background hover:text-[#FFFFFF]">Next</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="previewModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
+                <div class="bg-[#FFFFFF] rounded-xl shadow-2xl w-full max-w-5xl relative overflow-hidden">
+                    <button onclick="toggleModal()" class="absolute top-6 right-6">
+                        <img src="assets/images/fee-config-close-background.svg" alt="close-fee-screen">
+                    </button>
+                    <div class="p-8">
+                        <h2 class="text-[45px] font-medium text-[#333333] mb-8 fee-configration-main-heading">Preview Screen</h2>
+                        <div class="flex flex-col md:flex-row gap-12">
+                            <div class="flex-1 flex flex-col items-center">
+                                <div class="w-80 mb-8">
+                                    <img src="assets/images/egift-card-2.png" alt="Starbucks Card" class="w-full rounded-xl shadow-sm border border-gray-100">
+                                </div>
+                                <div class="flex items-center gap-4 mb-8 fee-configration-main-heading">
+                                    <button onclick="updatePoints(-1)" class="w-11 h-11 flex items-center justify-center rounded bg-[#0077B6] text-white text-xl font-bold">
+                                        <img src="assets/images/fee-minus-sign.svg" alt="fee-minus">
+                                    </button>
+                                    <div class="border-b border-[#D6CECE] px-4 py-1 flex items-baseline">
+                                        <input id="pointInput" type="number" value="25" class="w-12 text-center text-[24px] text-[#3E3E3E] font-regular focus:outline-none bg-transparent">
+                                        <span class="text-[20px] text-[#3E3E3E] font-regular ml-1">points</span>
+                                    </div>
+                                    <button onclick="updatePoints(1)" class="w-11 h-11 flex items-center justify-center rounded bg-[#0077B6] text-white text-xl font-bold">
+                                        <img src="assets/images/fee-plus.svg" alt="fee-plus">
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-3 gap-3 mb-3">
+                                    <button onclick="setPoints(5)" class="border border-[#D9D9D9] rounded-full py-2 px-6 text-[19px] font-medium text-[#1471B0] hover:bg-[#1471B0] hover:text-white">5 points</button>
+                                    <button onclick="setPoints(25)" class="border border-[#D9D9D9] text-[#1471B0] hover:bg-[#1471B0] hover:text-white rounded-full py-2 px-6 font-medium text-[19px]">€ 25</button>
+                                    <button onclick="setPoints(50)" class="border border-[#D9D9D9] rounded-full py-2 px-6 text-[19px] font-medium text-[#1471B0] hover:bg-[#1471B0] hover:text-white">€ 50</button>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <button onclick="setPoints(100)" class="border border-[#D9D9D9] rounded-full py-2 px-6 text-[19px] font-medium text-[#1471B0] hover:bg-[#1471B0] hover:text-white">€ 100</button>
+                                    <button onclick="setPoints(150)" class="border border-[#D9D9D9] rounded-full py-2 px-6 text-[19px] font-medium text-[#1471B0] hover:bg-[#1471B0] hover:text-white">€ 150</button>
+                                </div>
+                            </div>
+
+                            <div class="flex-1 fee-configration-main-heading">
+                                <h1 class="text-[45px] font-regular text-[#333333] mb-2">Starbucks eGift Card</h1>
+                                    <p class="text-[#404A60] font-regular text-[15px] mb-4"><span class="font-bold">Redemption:</span> Online & In-Store</p>
+                                    <p class="text-[#333333] font-regular text-[19px] mb-4">£5 to £150</p>                            
+                                <hr class="mb-6">
+                                <div class="flex items-start gap-3 mb-6">
+                                    <div class="bg-[#0077B6] p-2 rounded-full mt-1">
+                                        <img src="assets/images/fee-location-icon.svg" class="h-4 w-4" alt="location">
+                                    </div>
+                                    <p class="text-[13px] text-[#404A60] font-medium leading-tight mt-2">Geographic restrictions apply. Review the Terms for details.</p>
+                                </div>
+                                <div class="text-[15px] text-[#333333] font-regular space-y-4 mb-6">
+                                    <p>
+                                        When you give a Starbucks Code, you're giving more than just a gift or a token of appreciation. 
+                                        You're connecting with customers and employees by providing them something that's practical 
+                                        and meaningful from a widely-recognized brand. 
+                                        <span class="text-[15px] text-[#FF7F32] font-medium cursor-pointer">.... Readmore</span>
+                                    </p>
+                                </div>
+                                <div class="flex items-center gap-3 mb-8 fee-configration-main-tick-fee">
+                                    <input type="checkbox" id="terms" class="w-5 h-5 accent-[#FF7F32] cursor-pointer">
+                                    <label for="terms" class="text-[17px] text-[#333333] font-regular">I Agree with <span class="text-[17px] text-[#0077B6] font-semibold underline cursor-pointer">terms & Condition</span></label>
+                                </div>
+                                <button class="w-75 text-[18px] text-[#FFFFFF] font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition duration-200 fee-configration-point-coin-button">
+                                    <img src="assets/images/fee-coin-button.png" alt="coin" class="w-7 h-7">
+                                    Unlock with 104 points 
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden flex items-center justify-center p-4 main-button-rewards-update-popup-ok-update-text">
+                <div class="bg-white rounded-md p-8 max-w-sm w-full text-center shadow-2xl relative">
+                    <button onclick="closeSuccessModal()" class="absolute top-1 right-4 text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
+                    <div class="w-25 h-25 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <img src="assets/images/password-update-tick.png" alt="tick">
+                    </div>
+                    <h3 class="text-[26px] font-semibold text-[#000000] mb-2">Successful </h3>
+                    <p class="text-[#000000] text-[16px] font-regular mb-6">Fee Configuration has been <br>updated Succesfully</p>
+                    <button onclick="closeSuccessModal()" class="w-50 py-3 rounded-full text-white font-semibold text-[16px] hover:opacity-90 transition shadow-lg main-button-rewards-update-popup-ok">
+                        Ok
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/js/dashboard/fee-configrations/fee-configration-data.js"></script>
+    <script src="assets/js/dashboard/fee-configrations/fee-configration-modal-screen-preview.js"></script>
+@endsection

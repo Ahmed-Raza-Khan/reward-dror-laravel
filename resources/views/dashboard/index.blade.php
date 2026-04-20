@@ -1,0 +1,326 @@
+@extends('layouts.app')
+
+@section('title', 'Reward Dror - Dashboard')
+
+
+@section('content')
+    <div class="pt-25 flex min-h-screen bg-[#F8F9FA]">
+        <aside class="w-64 bg-white border-r border-gray-100 flex flex-col fixed h-full left-0">
+            <nav class="flex-1 px-0 py-6 space-y-3 side-navbar-buttons-all">
+                <a href="{{ url('/dashboard') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#0077B6] text-white transition-colors">
+                    <img src="{{ asset('assets/images/dashboard-icon.svg') }}" alt="dashboard" width="20" height="20">
+                    <span class="active">Dashboard</span>
+                </a>
+                <a href="{{ url('/rewards-management-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/rewards-menagement-icon.svg') }}" alt="reawards" width="23" height="23">
+                    <span>Rewards Management</span>
+                </a>
+                <a href="{{ url('/fee-configration-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/fee-configuration-icon.svg') }}" alt="fee" width="23" height="23">
+                    <span>Fee Configuration</span>
+                </a>
+                <a href="{{ url('/system-settings-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/system-settings-icon.svg') }}" alt="system" width="23" height="23">
+                    <span>System Settings</span>
+                </a>
+                <a href="{{ url('/business-api-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/bussiness-api.svg') }}" alt="bussiness" width="23" height="23">
+                    <span>Business API</span>
+                </a>
+                <a href="{{ url('/transaction-list-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/transaction-icon.svg') }}" alt="transaction" width="23" height="23">
+                    <span>Transactions</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="ml-64 flex-1 p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-[#FFFFFF] p-6 rounded-md shadow-sm border border-gray-50 flex flex-col justify-between">
+                    <div class="chart-card-main-headings">
+                        <h3>Total transactions</h3>
+                        <p class="text-3xl mt-2">1204</p>
+                    </div>
+                    <div class="flex items-end justify-between mt-4">
+                        <div class="flex flex-col chart-card-bottom-headings">
+                            <span>16.8% ↑</span>
+                            <text class="text-xs">Since last month</text>
+                        </div>
+                        <img src="{{ asset('assets/images/SVG-1.svg') }}" alt="chart-svg" class="w-20 h-auto">
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-md shadow-sm border border-gray-50 flex flex-col justify-between">
+                    <div class="chart-card-main-headings">
+                        <h3>Total revenue</h3>
+                        <p class="text-3xl mt-2">$2156</p>
+                    </div>
+                    <div class="flex items-end justify-between mt-4">
+                        <div class="flex flex-col chart-card-bottom-headings">
+                            <span>3.51% ↑</span>
+                            <text class="text-xs">Since last month</text>
+                        </div>
+                        <img src="{{ asset('assets/images/SVG-2.svg') }}" alt="chart-svg" class="w-20 h-auto">
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-50 flex flex-col justify-between">
+                    <div class="chart-card-main-headings">
+                        <h3>Active rewards count</h3>
+                        <p class="text-3xl mt-2">2,120</p>
+                    </div>
+                    <div class="flex items-end justify-between mt-4">
+                        <div class="flex flex-col chart-card-bottom-headings">
+                            <span class="chart-card-bottom-down">2.87% ↓</span>
+                            <text class="text-xs">Since last month</text>
+                        </div>
+                        <img src="{{ asset('assets/images/SVG-3.svg') }}" alt="chart-svg" class="w-20 h-auto">
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-50 flex flex-col justify-between">
+                    <div class="chart-card-main-headings">
+                        <h3>Active business API accounts</h3>
+                        <p class="text-3xl mt-2">$1,473</p>
+                    </div>
+                    <div class="flex items-end justify-between mt-4">
+                        <div class="flex flex-col chart-card-bottom-headings">
+                            <span>9.19% ↑</span>
+                            <text class="text-xs">Since last month</text>
+                        </div>
+                        <img src="{{ asset('assets/images/SVG-4.svg') }}" alt="chart-svg" class="w-20 h-auto">
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-full mx-auto grid grid-cols-1 md:grid-cols-11 gap-6">
+                <div class="md:col-span-4 bg-white p-0 rounded-[0.5rem] shadow-sm border border-gray-100">
+                    <div class="border-b border-dashed border-gray-300 p-4 mb-6">
+                        <h2 class="text-xl tracking-tight main-heading-reward-chart-top">Top Reward Categories</h2>
+                    </div>
+                    <div class="relative flex flex-col items-center">
+                        <div class="relative w-64 h-32 overflow-hidden">
+                            <canvas id="rewardsChart"></canvas>
+                            <div class="absolute inset-x-0 bottom-0 flex flex-col items-center justify-end pb-1 reward-chart-mainheadings-center">
+                                <span class="uppercase tracking-widest">Total Unlocks</span>
+                                <text class="text-3xl leading-none">11,685</text>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-x-8 gap-y-5 mt-15 w-full px-2">
+                            <div class="flex items-center justify-between top-rewards-brand-detail">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-[#7168EE]"></div>
+                                    <span>Addidas</span>
+                                </div>
+                                <div class="flex items-center text-green-500 text-xs">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7"></path></svg>
+                                    <span class="span-2-per">12.48%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between top-rewards-brand-detail">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-[#963B68]"></div>
+                                    <span>h&m</span>
+                                </div>
+                                <div class="flex items-center text-green-500 text-xs">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7"></path></svg>
+                                    <span class="span-2-per">15.58%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between top-rewards-brand-detail">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-[#46B277]"></div>
+                                    <span>Ikea</span>
+                                </div>
+                                <div class="flex items-center text-green-500 text-xs">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7"></path></svg>
+                                    <span class="span-2-per">5.23%</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between top-rewards-brand-detail">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-[#01D4FF]"></div>
+                                    <span>Waterstc</span>
+                                </div>
+                                <div class="flex items-center text-green-500 text-xs">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 15l7-7 7 7"></path></svg>
+                                    <span class="span-2-per">14.15%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 bg-white p-4 rounded-[0.5rem] shadow-sm border border-gray-100">
+                    <div class="border-b border-dashed border-gray-300 pb-4 mb-6 flex justify-between items-center">
+                        <h2 class="text-xl font-bold text-gray-800 tracking-tight">Transaction Volume over time</h2>
+                        <div class="flex items-center gap-2 absolute top-[430px] right-[70px]">
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#FF7F32]"></div>
+                            <span class="text-xs font-regular text-[#4A5A6B]">Revenue</span>
+                        </div>
+                    </div>
+                    <div class="h-64 w-full">
+                        <canvas id="volumeChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex-1">
+                        <h2 class="text-xl font-semibold text-[18px] text-[#060707] mb-4">Statistics</h2>
+                        <div class="border-b border-dashed border-gray-200 mb-6"></div>
+
+                        <div class="flex flex-col md:flex-row gap-8">
+                            <div class="flex-1">
+                                <div class="h-70 flex items-end justify-between gap-2 relative border-l border-b border-gray-100 pb-2 pl-12" id="chart-container">
+                                    <div class="absolute left-12 h-full flex flex-col justify-between text-[11px] text-[#9BA6B7] -ml-12 w-10 text-right pr-2">
+                                        <span>120.00</span><span>100.00</span><span>80.00</span><span>60.00</span><span>40.00</span><span>20.00</span><span>0.00</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-center gap-6 mt-6">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-[#0ACF97]"></span>
+                                        <span class="text-[#9BA6B7] text-[13px]">Total income</span>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-[#777EDD]"></span>
+                                        <span class="text-[#9BA6B7] text-[13px]">Total Expenditure</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-full md:w-36 space-y-9">
+                                <div class="p-4 hover:rounded-xl hover:bg-gray-100">
+                                    <p class="text-[13px] text-[#9BA6B7] mb-1 font-medium">Total income</p>
+                                    <div class="flex items-center gap-2">
+                                        <span ><img src="{{ asset('assets/images/barchart-up-green.svg') }}" width="19" height="19" alt="arrowup-green"></span>
+                                        <p class="text-[16px] font-semibold text-[#4C4C5C]" id="total-income-val">$35.2k</p>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-100 p-4 rounded-xl">
+                                    <p class="text-[13px] text-[#9BA6B7] mb-1 font-medium">Total Expenditure</p>
+                                    <div class="flex items-center gap-2">
+                                        <span ><img src="{{ asset('assets/images/barchart-up-purple.svg') }}" width="19" height="19" alt="arrowup-purple"></span>
+                                        <p class="text-[16px] font-semibold text-[#4C4C5C]" id="total-exp-val">$18.9k</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 hover:rounded-xl hover:bg-gray-100">
+                                    <p class="text-[13px] text-[#9BA6B7] mb-1 font-medium">eGIFTER Balance</p>
+                                    <div class="flex items-center gap-2">
+                                        <span ><img src="{{ asset('assets/images/barchart-gray-three-line.svg') }}" width="19" height="19" alt="barchart-gray-three-line"></span>
+                                        <p class="text-[16px] font-semibold text-[#4C4C5C]" id="egifter-val">$5.2k</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 w-full lg:w-96">
+                        <h2 class="text-[18px] font-bold text-[#060707] mb-4">Popular Rewards</h2>
+                        <div class="border-b border-dashed border-gray-200 mb-4"></div>
+                        <div class="space-y-5" id="rewards-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- bussiness and recent user section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 mt-5 gap-6 max-w-full mx-auto">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-4 flex justify-between items-center">
+                        <h2 class="text-[18px] font-bold text-[#060707]">Business Accounts List</h2>
+                        <button class="bg-[#0077B6] text-[#FFFFFF] px-4 py-2 rounded-md text-[14px] text-medium flex items-center gap-2 hover:bg-blue-700 transition">
+                            Onboard New Business <img src="{{ asset('assets/images/add-new-bussiness-plus.svg') }}" alt="addnew-user">
+                        </button>
+                    </div>
+
+                    <div class="bg-[#F6F8FB] py-2 text-center border-y border-gray-100">
+                        <p class="text-[14px] text-[#4C4C5C] font-regular">120 Business Accounts  out of 160</p>
+                    </div>
+
+                    <div class="p-4">
+                        <div class="grid grid-cols-5 text-[13px] tracking-wider text-[#9BA6B7] font-regular mb-4 px-2">
+                            <div>Business ID</div>
+                            <div>Joining Date</div>
+                            <div>Category</div>
+                            <div>Status</div>
+                            <div>Action</div>
+                        </div>
+
+                        <div id="business-list" class="space-y-5"></div>
+                        <div class="mt-5 flex justify-between items-center px-2">
+                            <p class="text-[16px] text-[#9BA6B7] font-regular">Showing 5 of 120 Buisness</p>
+                            <div class="flex items-center gap-1">
+                                <button class="w-9 h-9 flex items-center justify-center rounded border border-[#CED4DA] text-gray-400 hover:bg-gray-50"><img src="{{ asset('assets/images/arrow-all-pagination.svg') }}" alt="arrow"></button>
+                                <button class="w-9 h-9 flex items-center justify-center rounded bg-[#0077B6] text-[#FFFFFF] text-[13px] font-regular shadow-md shadow-blue-100">1</button>
+                                <button class="w-9 h-9 flex items-center justify-center rounded border border-gray-200 text-[#4C4C5C] text-[13px] font-regular hover:bg-[#0077B6] hover:text-[#FFFFFF]">2</button>
+                                <button class="w-9 h-9 flex items-center justify-center rounded border border-[#CED4DA] text-gray-400 hover:bg-gray-50"><img src="{{ asset('assets/images/arrow-all-pagination.svg') }}" alt="arrow"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="p-4 flex justify-between items-center">
+                        <h2 class="text-[18px] font-bold text-[#060707]">Recent New Users</h2>
+                        <button class="bg-[#0081C9] text-[#FFFFFF] px-4 py-2 rounded-md text-[14px] font-medium flex items-center gap-2 hover:bg-blue-600 transition">
+                            Export <img src="{{ asset('assets/images/upload-new-user-export.svg') }}" alt="export" width="17" height="17">
+                        </button>
+                    </div>
+
+                    <div class="bg-[#F6F8FB] py-2 text-center border-y border-gray-100">
+                        <p class="text-[14px] text-[#4C4C5C] font-regular">1k Active users out of 5k</p>
+                    </div>
+
+                    <div class="p-4">
+                        <div class="grid grid-cols-5 text-[13px] tracking-wider text-[#9BA6B7] font-regular mb-4 px-2">
+                            <div class="pl-11">Name</div>
+                            <div>Joining date</div>
+                            <div>Points Used</div>
+                            <div>Status</div>
+                            <div>Action</div>
+                        </div>
+
+                        <div id="users-list" class="space-y-1"></div>
+                        <div class="mt-5 flex justify-between items-center px-2">
+                            <p class="text-[16px] text-[#9BA6B7] font-regular">Showing 5 of 5596 Users</p>
+                            <div class="flex items-center gap-1">
+                                <button class="w-9 h-9 flex items-center justify-center rounded border border-[#CED4DA] text-gray-400 hover:bg-gray-50"><img src="{{ asset('assets/images/arrow-all-pagination.svg') }}" alt="arrow"></button>
+                                <button class="w-9 h-9 flex items-center justify-center rounded bg-[#0077B6] text-[#FFFFFF] text-[13px] font-regular shadow-md shadow-blue-100">1</button>
+                                <button class="w-9 h-9 flex items-center justify-center rounded border border-gray-200 text-[#4C4C5C] text-[13px] font-regular hover:bg-[#0077B6] hover:text-[#FFFFFF]">2</button>
+                                <button class="w-9 h-9 flex items-center justify-center rounded border border-[#CED4DA] text-gray-400 hover:bg-gray-50"><img src="{{ asset('assets/images/arrow-all-pagination.svg') }}" alt="arrow"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- recent transaction list section -->
+            <div class="max-w-full mx-auto bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden mt-5">
+                
+                <div class="px-6 py-4">
+                    <h2 class="text-[#060707] text-[16px] font-bold">Recent transactions list</h2>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-[#F8F9FA] border-y border-[#DEE2E6]">
+                            <tr class="text-[#4A5A6B] text-[14px] font-semibold tracking-wider">
+                                <th class="px-6 py-3">Reward</th>
+                                <th class="px-6 py-3">Reward Date</th>
+                                <th class="px-6 py-3">Status</th>
+                                <th class="px-6 py-3 text-center">Provider tran ID</th>
+                                <th class="px-6 py-3">Customer</th>
+                                <th class="px-6 py-3 text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transaction-table-body" class="text-sm divide-y divide-gray-100">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    @push('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="{{ asset('assets/js/dashboard/pie-chart-dashboard.js') }}"></script>
+        <script src="{{ asset('assets/js/dashboard/popular-statics-lines.js') }}"></script>
+        <script src="{{ asset('assets/js/dashboard/bussiness-and-new-user.js') }}"></script>
+        <script src="{{ asset('assets/js/dashboard/recent-transaction-list.js') }}"></script>
+    @endpush
+@endsection

@@ -1,0 +1,167 @@
+@extends('layouts.app')
+
+@section('title', 'Reward Dror - Edit Business API')
+
+@section('content')
+    <div class="pt-25 flex min-h-screen bg-[#F8F9FA]">
+        <aside class="w-64 bg-white border-r border-gray-100 flex flex-col fixed h-full left-0">
+            <nav class="flex-1 px-0 py-6 space-y-3 side-navbar-buttons-all">
+                <a href="{{ url('/dashboard') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/dashboard-dark-icon.svg') }}" alt="dashboard" width="20" height="20">
+                    <span>Dashboard</span>
+                </a>
+                <a href="{{ url('/rewards-management-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/rewards-menagement-icon.svg') }}" alt="reawards" width="23" height="23">
+                    <span>Rewards Management</span>
+                </a>
+                <a href="{{ url('/fee-configration-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/fee-configuration-icon.svg') }}" alt="fee" width="23" height="23">
+                    <span>Fee Configuration</span>
+                </a>
+                <a href="{{ url('/system-settings-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/system-settings-icon.svg') }}" alt="system" width="23" height="23">
+                    <span>System Settings</span>
+                </a>
+                <a href="{{ url('/business-api-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#0077B6] text-white transition-colors">
+                    <img src="{{ asset('assets/images/bussiness-api-light.svg') }}" alt="bussiness" width="23" height="23">
+                    <span class="active">Business API</span>
+                </a>
+                <a href="{{ url('/transaction-list-main') }}" class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                    <img src="{{ asset('assets/images/transaction-icon.svg') }}" alt="transaction" width="23" height="23">
+                    <span>Transactions</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="ml-64 flex-1 p-8 business-api-main-heading">
+            <div class="max-w-full mx-auto bg-white p-12 rounded-lg shadow-sm border border-gray-100">
+                <div class="flex items-center mb-10">
+                    <button class="mr-4 text-gray-500 hover:text-gray-700">
+                        <a href="/business-account-detail-api">
+                        <img src="assets/images/left-arrow-back.svg" alt="arrow" class="h-7 w-7">
+                        </a>
+                    </button>
+                    <h1 class="text-[35px] font-medium text-[#333333]">Edit Business Account</h1>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 mb-12">
+                    <div class="relative">
+                        <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">
+                            Company Name <span class="text-[#FF0000]">*</span>
+                        </label>
+                        <input type="text" placeholder="Abc Comapny" class="input-box-business-acc">
+                    </div>
+
+                    <div class="relative">
+                        <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">
+                            Comapny Email <span class="text-[#FF0000]">*</span>
+                        </label>
+                        <input type="email" placeholder="Abc Comapany" class="input-box-business-acc">
+                    </div>
+
+                    <div class="relative w-full max-w-md">
+                        <label class="absolute -top-2.5 left-6 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">
+                            Contact phone
+                        </label>
+                        <div class="relative flex items-center">
+                            <div class="absolute left-4 flex items-center gap-2 pointer-events-none">
+                                <img src="assets/images/country-flag-aquare.png" alt="US Flag" class="w-7 h-5">
+                                <span class="text-[15px] text-[#707C8B] font-medium">+101</span>
+                                <div class="h-6 w-[1px] bg-[#D1D5DB] ml-1"></div>
+                            </div>
+                            <input type="number" placeholder="Enter your phone number" 
+                            class="w-full h-14 pl-28 pr-4 border border-[#E5E7EB] rounded-full text-[15px] focus:outline-none focus:border-blue-400 placeholder-[#999999]">
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">DrorPay business account ID</label>
+                        <input type="text" placeholder="Enter Id (optional)" class="input-box-business-acc">
+                    </div>
+                </div>
+
+                <div class="border-t-custom-business-acc mb-10"></div>
+                <div class="mb-12">
+                    <h2 class="text-[26px] font-medium text-[#0754A0] mb-8">API Key section:</h2>
+                    <div class="flex flex-wrap items-end gap-x-8 gap-y-10">
+                        <div class="relative flex-1 min-w-[300px] max-w-xl">
+                            <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">API key</label>
+                            <div class="relative">
+                                <input type="text" value="a1b2c3d4e5f67890abcdef1234567890" class="input-box-business-acc text-[#8F8F90] text-[14px] font-regular pr-12">
+                                <button class="absolute right-5 top-1/2 -translate-y-1.5 text-[#A0A3BD] hover:text-gray-600">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="relative flex-1 min-w-[200px] max-w-sm">
+                            <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">Key expiration</label>
+                            <input type="text" value="2 days" class="input-box-business-acc text-[#8F8F90] text-[14px] font-regular">
+                        </div>
+                        <button class="system-settings-background-button text-[#FFFFFF] text-[18px] font-semibold py-4 px-8 rounded-full hover:shadow-lg transition duration-200">
+                            Generate New Api
+                        </button>
+                    </div>
+                </div>
+
+                <div class="border-t-custom-business-acc mb-10"></div>
+                <div class="mb-12">
+                    <h2 class="text-[26px] font-medium text-[#0754A0] mb-8">API Rate Limits :</h2>
+                    <div class="flex flex-wrap gap-8">
+                        <div class="relative flex-1 min-w-[280px] max-w-md">
+                            <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">Max Per Minute</label>
+                            <input type="number" placeholder="100" class="input-box-business-acc text-[#8F8F90] text-[14px] font-regular">
+                        </div>
+
+                        <div class="relative flex-1 min-w-[280px] max-w-md">
+                            <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">Max Per Hour</label>
+                            <input type="number" placeholder="500" class="input-box-business-acc text-[#8F8F90] text-[14px] font-regular">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t-custom-business-acc mb-10"></div>
+                <div class="mb-16">
+                    <h2 class="text-[26px] font-medium text-[#0754A0] mb-8">Permissions:</h2>
+                    <div class="flex flex-wrap gap-x-20 gap-y-10">
+                        <div>
+                            <h3 class="text-[14px] font-bold text-[#707C8B] mb-5">Allowed Endpoints :</h3>
+                            <div class="flex items-center gap-8">
+                                <label class="flex items-center gap-3 text-[16px] font-medium text-[#000000] cursor-pointer">
+                                    <input type="radio" name="endpoints" value="yes" checked>
+                                    <span>Yes</span>
+                                </label>
+                                <label class="flex items-center gap-3 text-[16px] font-medium text-[#000000] cursor-pointer">
+                                    <input type="radio" name="endpoints" value="no">
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-[14px] font-bold text-[#707C8B] mb-5">Allowed Reward Types :</h3>
+                            <div class="flex items-center gap-8">
+                                <label class="flex items-center gap-3 text-[16px] font-medium text-[#000000] cursor-pointer">
+                                    <input type="radio" name="rewards" value="yes" checked>
+                                    <span>Yes</span>
+                                </label>
+                                <label class="flex items-center gap-3 text-[16px] font-medium text-[#000000] cursor-pointer">
+                                    <input type="radio" name="rewards" value="no">
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t-custom-business-acc mb-12"></div>
+                <div class="mt-8 flex justify-start">
+                    <button class="system-settings-background-button text-[18px] font-semibold text-[#FFFFFF] py-4 px-10 rounded-full hover:shadow-lg transition duration-200">
+                        Save Changes
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+@endsection

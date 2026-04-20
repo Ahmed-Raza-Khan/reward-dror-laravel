@@ -1,0 +1,93 @@
+@extends('layouts.main-login')
+
+@section('title', 'Reward Dror - New Password')
+
+@section('content')
+    <div class="flex items-center justify-center relative main-body min-h-screen overflow-x-hidden">
+
+        <div class="absolute top-0 right-0 z-0"><img src="assets/images/right-top-image-background.png" alt=""></div>
+        <div class="absolute bottom-0 left-0 z-0"><img src="assets/images/left-bottom-image-background.png" alt=""></div>
+
+        <main class="relative z-10 w-full max-w-7xl h-[90vh] rounded-3xl p-6 md:p-14 shadow-2xl flex flex-col md:flex-row gap-8 items-center main-body-2 mx-4">
+            
+            <div class="flex-1 flex flex-col items-center">
+                <a href="login.html">
+                    <img src="assets/images/logo.png" alt="Reward Dror Logo" width="180" height="180">
+                </a>
+
+                <h1 class="text-6xl left-logo-heading text-[#0077B6] mb-5">
+                    <span>Reward</span>
+                    <span class="text-[#FF7F32]">Dror</span>
+                </h1>
+
+                <p class="text-5xl left-description-logo text-[#0077B6] leading-tight tracking-tight mt-6">
+                    Manage Rewards<br>
+                    With Ease And<br>
+                    Precision
+                </p>
+            </div>
+
+            <div class="w-full max-w-xl rounded-3xl p-10 md:p-16 flex-none self-stretch flex flex-col justify-center login-form-main">            
+                <h2 class="text-[#333333] mb-3">Forgot Password</h2>
+                <p class="text-[#666666] mb-10 mt-3">Set New Password for your Account</p>
+
+                <form action="#" class="space-y-5">
+                    <div class="form-all-headings relative">
+                        <label for="new-pass" class="absolute -top-3 left-6 px-2 z-10 text-[#222222]">
+                            New Password <span class="text-[#FF0000]">*</span>
+                        </label>
+                        <input type="new-pass" id="new-pass" name="new-pass" required placeholder="Enter New Password"
+                            class="w-full px-6 py-4 rounded-full outline-none transition-all">
+                        <div class="absolute inset-y-0 right-0 pr-5 flex items-center cursor-pointer password-eye">
+                            <img src="assets/images/eye-hidden.svg" alt="hidded" class="h-5 w-5">
+                        </div>
+                    </div>
+
+                    <div class="form-all-headings relative">
+                        <label for="new-pass-conform" class="absolute -top-3 left-6 px-2 z-10 text-[#222222]">
+                            Confirm Password <span class="text-[#FF0000]">*</span>
+                        </label>
+                        <input type="new-pass-conform" id="new-pass-conform" name="new-pass-conform" required placeholder="Confirm Password*"
+                            class="w-full px-6 py-4 rounded-full outline-none transition-all">
+                        <div class="absolute inset-y-0 right-0 pr-5 flex items-center cursor-pointer password-eye">
+                            <img src="assets/images/eye-hidden.svg" alt="hidded" class="h-5 w-5">
+                        </div>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full py-4 transition-transform active:scale-95 login-button-bottom cursor-pointer">
+                        Update
+                    </button>
+                </form>
+            </div>
+        </main>
+
+        <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+            <div class="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
+            
+            <div class="relative bg-white rounded-[0px] p-10 flex flex-col items-center max-w-sm w-full mx-4 shadow-2xl border border-white/20 sucessful-reset">
+                <button id="closeModal" class="absolute top-5 right-5 text-gray-400 hover:text-gray-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <div class="mb-6">
+                    <img src="assets/images/password-update-tick.png" alt="Success" class="w-24 h-24">
+                </div>
+
+                <h3 class="text-3xl font-bold mb-3">Successful</h3>
+                <p class="text-center text-sm mb-8">
+                    Your password has been reset. <br>
+                    Please login to continue.
+                </p>
+
+                <a href="{{ url('/login') }}" class="w-40 py-4 text-center login-button-bottom block no-underline">
+                    Login
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/login-password/new-password-popup.js"></script>
+@endsection

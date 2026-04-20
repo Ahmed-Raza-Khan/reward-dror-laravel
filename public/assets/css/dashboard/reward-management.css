@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --font-ibm-plex-sans: 'IBM Plex Sans';
+    --font-nunito-sans: 'Nunito Sans';
+    --font-public-sans: 'Public Sans';
+    --font-jost: 'Jost';
+    --font-poppins: 'Poppins';
+    --font-inter: 'Inter';
+    --font-regular: 'regular';
+    --font-bold: 'Bold';
+    --font-medium: 'Medium';
+    --font-light: 'Light';
+    --font-semibold: 'SemiBold';
+    --font-weight-300: 300;
+    --font-weight-400: 400;
+    --font-weight-500: 500;
+    --font-weight-600: 600;
+    --font-weight-700: 700;
+    --color-blue: #0077B6;
+    --color-black-0: #000000;
+    --color-black-2: #222222;
+    --color-black-3: #333333;
+    --color-black-6: #666666;
+    --color-black-060: #060707;
+    --color-gray-707: #707C8B;
+    --color-red-ff0: #FF0000;
+    --color-pink-e73: #E7366B;
+    --color-white-fff: #FFFFFF;
+    --color-white-e1f: #E1F3FC;
+    --color-white-d7d: #D7D7D7;
+    --color-blue-10: #0077B61A;
+    --color-blue-70: #528AF0B2;
+    --color-green-46b: #46B277;
+    --color-gray-404: #404A60;
+    --color-gray-4a5: #4A5A6B;
+    --color-gray-75: #4A5A6BBF;
+}
+
+
+.sync-catalog-top-bg {
+    background: linear-gradient(89deg, #FF4C4C 4.16%, #FF7F32 99.14%);
+    font-family: var(--font-ibm-plex-sans);
+    letter-spacing: 0%;
+}
+
+.filter-dashed-management {
+    background: linear-gradient(89deg, #FF4C4C 4.16%, #FF7F32 99.14%);
+}
+
+.pagination-hover-background-null {
+    background: linear-gradient(89deg, #FF4C4C 4.16%, #FF7F32 99.14%);
+    font-family: var(--font-ibm-plex-sans);
+}
+
+.pagination-hover-background:hover {
+    background: linear-gradient(89deg, #FF4C4C 4.16%, #FF7F32 99.14%);
+}
+
+
+/* reward-details.html page */
+.main-headings-rewards {
+    font-family: var(--font-ibm-plex-sans);
+    font-weight: var(--font-weight-600);
+    line-height: 44px;
+    letter-spacing: 0%;
+}
+
+.main-headings-detail-rewards {
+    font-family: var(--font-ibm-plex-sans);
+    font-weight: var(--font-weight-400);
+    line-height: 30px;
+    letter-spacing: 0%;
+}
+
+.main-button-rewards .main-button-rewards-edit {
+    background: linear-gradient(89deg, #FF4C4C 4.16%, #FF7F32 99.14%);
+    font-family: var(--font-ibm-plex-sans);
+}
+
+.main-button-rewards .main-button-rewards-delete {
+    font-family: var(--font-ibm-plex-sans);
+}
+
+
+/* update reward page */
+.main-button-rewards-update .main-button-rewards-update-save {
+    font-family: var(--font-ibm-plex-sans);
+    letter-spacing: 0%;
+    background: linear-gradient(89deg, #FF4C4C 4.16%, #FF7F32 99.14%);
+}
+
+.main-button-rewards-update .main-button-rewards-update-delete {
+    font-family: var(--font-ibm-plex-sans);
+    letter-spacing: 0%;
+}
+
+.main-button-rewards-update-popup-ok {
+    background: linear-gradient(89deg, #FF4C4C 4.16%, #FF7F32 99.14%);
+    font-family: var(--font-ibm-plex-sans);
+}
+
+.main-button-rewards-update-popup-ok-update-text {
+    font-family: var(--font-ibm-plex-sans);
+}
+
+.main-button-rewards-update-popup-ok-update-heading {
+    font-family: var(--font-ibm-plex-sans);
+}
+
+.main-button-rewards-update-popup-ok-warning-text {
+    font-family: var(--font-ibm-plex-sans);
+}
+
+
+/* fee configration section */
+.fee-configration-main-heading {
+    font-family: var(--font-ibm-plex-sans);
+}
+
+.main-button-background-fee-config {
+    background: linear-gradient(89deg, #FF4C4C 4.16%, #FF7F32 99.14%);
+    font-family: var(--font-ibm-plex-sans);
+}
+
+/* .main-button-background-fee-config { background-color: #0077B6; } */
+/* .pagination-hover-background:hover { background-color: #0077B6; } */
+/* .pagination-hover-background-null { background-color: #0077B6; } */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.fee-configration-main-tick-fee {
+    font-family: var(--font-inter);
+}
+
+.fee-configration-point-coin-button {
+    background: linear-gradient(89deg, #FF4C4C 4.16%, #FF7F32 99.14%);   
+}
+
+
+/* system settings section */
+.system-settings-main-heading {
+    font-family: var(--font-ibm-plex-sans);
+}
+
+.dropdown-arrow {
+    position: absolute;
+    top: 50%;
+    right: 1.25rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #4B5563;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.border-t-custom {
+    border-top: 1px solid #D3D4DC;
+}
+
+.btn-gradient {
+    background-image: linear-gradient(135deg, #FF6B6B 10%, #FF9A6B 100%);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.input-box {
+    background-color: white;
+    border-radius: 9999px;
+    border: 1px solid #D1D5DB;
+    color: #1F2937;
+    font-size: 14px;
+    padding: 1rem 1.25rem;
+    width: 100%;
+}
+
+.input-box::placeholder {
+    color: #9CA3AF;
+}
+
+.input-box:focus {
+    outline: none;
+    border-color: #A78BFA;
+}
+
+.system-settings-background-button {
+    background: linear-gradient(89deg, #FF4C4C 4.16%, #FF7F32 99.14%);   
+}
+
+
+/* business api section*/
+.business-api-main-heading {
+    font-family: var(--font-ibm-plex-sans);
+}
+
+.input-box-business-acc {
+    background-color: white;
+    border-radius: 9999px;
+    border: 1px solid #D1D5DB;
+    color: #4B5563;
+    font-size: 13px;
+    padding: 1rem 1.25rem;
+    width: 100%;
+}
+
+.input-box-business-acc::placeholder {
+    color: #909090;
+}
+
+.input-box-business-acc:focus {
+    outline: none;
+    border-color: #D7D7D7;
+}
+
+.border-t-custom-business-acc {
+    border-top: 1px solid #E5E7EB;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #FF7F32;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]::before {
+    content: "";
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #FF4C4C;
+}
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="radio"]:checked {
+    border-color: #FF4C4C;
+}
