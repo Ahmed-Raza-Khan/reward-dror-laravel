@@ -15,7 +15,11 @@
         @include('partials.header')
     </header>
 
-    @yield('content')
+    <div class="pt-25 flex min-h-screen bg-[#F8F9FA]">
+        @include('partials.sidebar')
+        @yield('content')
+    </div>
+    
 
     @stack('scripts')
 </body>

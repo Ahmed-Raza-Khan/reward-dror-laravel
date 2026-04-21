@@ -190,3 +190,7 @@
     letter-spacing: 0%;
     color: var(--color-gray-75);
 }
+
+.table-arrow-right {
+    transform: scaleX(-1);
+}
