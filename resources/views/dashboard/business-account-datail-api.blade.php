@@ -39,8 +39,9 @@
                 <div class="relative max-w-sm">
                     <label class="absolute -top-2 left-4 bg-white px-1 text-[14px] text-[#707C8B] uppercase font-bold">API key</label>
                     <div class="flex items-center border border-[#D7D7D7] rounded-full px-4 py-5 bg-[#FBFBFE]">
-                        <input type="text" value="335D23M5P7E7B7898GHF1234567890" class="bg-[#FBFBFE] text-[#8F8F90] text-[14px] font-regular w-full outline-none" readonly>
-                        <button class="text-gray-400 hover:text-gray-600">
+                        <input type="text" id="apiKeyInput" value="335D23M5P7E7B7898GHF1234567890" class="bg-[#FBFBFE] text-[#8F8F90] text-[14px] font-regular w-full outline-none" readonly>
+                        
+                        <button onclick="copyApiKey()" class="text-gray-400 hover:text-gray-600" title="Copy to Clipboard">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
                         </button>
                     </div>

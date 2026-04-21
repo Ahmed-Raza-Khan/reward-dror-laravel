@@ -56,8 +56,9 @@
                     <div class="relative flex-1 min-w-[300px] max-w-xl">
                         <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">API key</label>
                         <div class="relative">
-                            <input type="text" value="a1b2c3d4e5f67890abcdef1234567890" class="input-box-business-acc text-[#8F8F90] text-[14px] font-regular pr-12">
-                            <button class="absolute right-5 top-1/2 -translate-y-1.5 text-[#A0A3BD] hover:text-gray-600">
+                            <input type="text" id="apiKeyInput" value="a1b2c3d4e5f67890abcdef1234567890" class="input-box-business-acc text-[#8F8F90] text-[14px] font-regular pr-12">
+
+                            <button onclick="copyApiKey()" class="absolute right-5 top-1/2 -translate-y-1.5 text-[#A0A3BD] hover:text-gray-600" title="Copy to Clipboard">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path>
                                 </svg>
@@ -133,4 +134,6 @@
             </div>
         </div>
     </main>
+
+    <script src="/assets/js/dashboard/business-api/business-api-detail-table.js"></script>
 @endsection
