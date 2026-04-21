@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <main class="ml-64 flex-1 p-8">
+    <main class="ml-64 flex-1 p-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <div class="bg-[#FFFFFF] p-6 rounded-md shadow-sm border border-gray-50 flex flex-col justify-between">
                 <div class="chart-card-main-headings">
@@ -130,62 +130,62 @@
                     <canvas id="volumeChart"></canvas>
                 </div>
             </div>
-            
-            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-6">
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex-1">
-                    <h2 class="text-xl font-semibold text-[18px] text-[#060707] mb-4">Statistics</h2>
-                    <div class="border-b border-dashed border-gray-200 mb-6"></div>
+        </div>
 
-                    <div class="flex flex-col md:flex-row gap-8">
-                        <div class="flex-1">
-                            <div class="h-70 flex items-end justify-between gap-2 relative border-l border-b border-gray-100 pb-2 pl-12" id="chart-container">
-                                <div class="absolute left-12 h-full flex flex-col justify-between text-[11px] text-[#9BA6B7] -ml-12 w-10 text-right pr-2">
-                                    <span>120.00</span><span>100.00</span><span>80.00</span><span>60.00</span><span>40.00</span><span>20.00</span><span>0.00</span>
-                                </div>
-                            </div>
-                            <div class="flex justify-center gap-6 mt-6">
-                                <div class="flex items-center gap-2">
-                                    <span class="w-3 h-3 rounded-full bg-[#0ACF97]"></span>
-                                    <span class="text-[#9BA6B7] text-[13px]">Total income</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="w-3 h-3 rounded-full bg-[#777EDD]"></span>
-                                    <span class="text-[#9BA6B7] text-[13px]">Total Expenditure</span>
-                                </div>
+        <div class="max-w-full mx-auto flex flex-col lg:flex-row gap-6 mt-10">
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex-1">
+                <h2 class="text-xl font-semibold text-[18px] text-[#060707] mb-4">Statistics</h2>
+                <div class="border-b border-dashed border-gray-200 mb-6"></div>
+
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="flex-1">
+                        <div class="h-70 flex items-end justify-between gap-2 relative border-l border-b border-gray-100 pb-2 pl-12" id="chart-container">
+                            <div class="absolute left-12 h-full flex flex-col justify-between text-[11px] text-[#9BA6B7] -ml-12 w-10 text-right pr-2">
+                                <span>120.00</span><span>100.00</span><span>80.00</span><span>60.00</span><span>40.00</span><span>20.00</span><span>0.00</span>
                             </div>
                         </div>
+                        <div class="flex justify-center gap-6 mt-6">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-[#0ACF97]"></span>
+                                <span class="text-[#9BA6B7] text-[13px]">Total income</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-[#777EDD]"></span>
+                                <span class="text-[#9BA6B7] text-[13px]">Total Expenditure</span>
+                            </div>
+                        </div>
+                    </div>
 
-                        <div class="w-full md:w-36 space-y-9">
-                            <div class="p-4 hover:rounded-xl hover:bg-gray-100">
-                                <p class="text-[13px] text-[#9BA6B7] mb-1 font-medium">Total income</p>
-                                <div class="flex items-center gap-2">
-                                    <span ><img src="{{ asset('assets/images/barchart-up-green.svg') }}" width="19" height="19" alt="arrowup-green"></span>
-                                    <p class="text-[16px] font-semibold text-[#4C4C5C]" id="total-income-val">$35.2k</p>
-                                </div>
+                    <div class="w-full md:w-36 space-y-9">
+                        <div class="p-4 hover:rounded-xl hover:bg-gray-100">
+                            <p class="text-[13px] text-[#9BA6B7] mb-1 font-medium">Total income</p>
+                            <div class="flex items-center gap-2">
+                                <span ><img src="{{ asset('assets/images/barchart-up-green.svg') }}" width="19" height="19" alt="arrowup-green"></span>
+                                <p class="text-[16px] font-semibold text-[#4C4C5C]" id="total-income-val">$35.2k</p>
                             </div>
-                            <div class="bg-gray-100 p-4 rounded-xl">
-                                <p class="text-[13px] text-[#9BA6B7] mb-1 font-medium">Total Expenditure</p>
-                                <div class="flex items-center gap-2">
-                                    <span ><img src="{{ asset('assets/images/barchart-up-purple.svg') }}" width="19" height="19" alt="arrowup-purple"></span>
-                                    <p class="text-[16px] font-semibold text-[#4C4C5C]" id="total-exp-val">$18.9k</p>
-                                </div>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-xl">
+                            <p class="text-[13px] text-[#9BA6B7] mb-1 font-medium">Total Expenditure</p>
+                            <div class="flex items-center gap-2">
+                                <span ><img src="{{ asset('assets/images/barchart-up-purple.svg') }}" width="19" height="19" alt="arrowup-purple"></span>
+                                <p class="text-[16px] font-semibold text-[#4C4C5C]" id="total-exp-val">$18.9k</p>
                             </div>
-                            <div class="p-4 hover:rounded-xl hover:bg-gray-100">
-                                <p class="text-[13px] text-[#9BA6B7] mb-1 font-medium">eGIFTER Balance</p>
-                                <div class="flex items-center gap-2">
-                                    <span ><img src="{{ asset('assets/images/barchart-gray-three-line.svg') }}" width="19" height="19" alt="barchart-gray-three-line"></span>
-                                    <p class="text-[16px] font-semibold text-[#4C4C5C]" id="egifter-val">$5.2k</p>
-                                </div>
+                        </div>
+                        <div class="p-4 hover:rounded-xl hover:bg-gray-100">
+                            <p class="text-[13px] text-[#9BA6B7] mb-1 font-medium">eGIFTER Balance</p>
+                            <div class="flex items-center gap-2">
+                                <span ><img src="{{ asset('assets/images/barchart-gray-three-line.svg') }}" width="19" height="19" alt="barchart-gray-three-line"></span>
+                                <p class="text-[16px] font-semibold text-[#4C4C5C]" id="egifter-val">$5.2k</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 w-full lg:w-96">
-                    <h2 class="text-[18px] font-bold text-[#060707] mb-4">Popular Rewards</h2>
-                    <div class="border-b border-dashed border-gray-200 mb-4"></div>
-                    <div class="space-y-5" id="rewards-list"></div>
-                </div>
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 w-full lg:w-100">
+                <h2 class="text-[18px] font-bold text-[#060707] mb-4">Popular Rewards</h2>
+                <div class="border-b border-dashed border-gray-200 mb-4"></div>
+                <div class="space-y-5" id="rewards-list"></div>
             </div>
         </div>
 
@@ -209,7 +209,7 @@
                         <div>Joining Date</div>
                         <div>Category</div>
                         <div>Status</div>
-                        <div>Action</div>
+                        <div class="text-center pr-4">Action</div>
                     </div>
 
                     <div id="business-list" class="space-y-5"></div>
@@ -238,12 +238,12 @@
                 </div>
 
                 <div class="p-4">
-                    <div class="grid grid-cols-5 text-[13px] tracking-wider text-[#9BA6B7] font-regular mb-4 px-2">
-                        <div class="pl-11">Name</div>
+                    <div class="grid grid-cols-5 text-[13px] tracking-wider text-[#9BA6B7] font-regular mb-4 px-1">
+                        <div class="pl-6">Name</div>
                         <div>Joining date</div>
                         <div>Points Used</div>
                         <div>Status</div>
-                        <div>Action</div>
+                        <div class="text-center pr-4">Action</div>
                     </div>
 
                     <div id="users-list" class="space-y-1"></div>

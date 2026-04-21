@@ -29,20 +29,26 @@
                     <input type="email" placeholder="Abc Comapany" class="input-box-business-acc">
                 </div>
 
-                <div class="relative w-full max-w-md">
-                    <label class="absolute -top-2.5 left-6 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">
-                        Contact phone
-                    </label>
-                    <div class="relative flex items-center">
-                        <div class="absolute left-4 flex items-center gap-2 pointer-events-none">
-                            <img src="assets/images/country-flag-aquare.png" alt="US Flag" class="w-7 h-5">
-                            <span class="text-[15px] text-[#707C8B] font-medium">+101</span>
-                            <div class="h-6 w-[1px] bg-[#D1D5DB] ml-1"></div>
+                <div class="relative flex items-center">
+                    <div class="absolute left-4 flex items-center">
+                        <div class="relative flex items-center gap-1 cursor-pointer">
+                            <img id="selectedFlag" src="assets/images/country-flag-aquare.png" alt="Flag" class="w-8 h-6 rounded-none">
+                            <select id="countryCode" onchange="updateCountry()" class="bg-transparent text-[15px] text-[#707C8B] font-medium outline-none cursor-pointer appearance-none pr-2">
+                                <option value="+1" data-flag="assets/images/country-flag-aquare.png">+1</option>
+                                <option value="+44" data-flag="assets/images/algeria-flag-square.png">+44</option>
+                                <option value="+91" data-flag="assets/images/bulgaria-flag-square.png">+91</option>
+                                <option value="+971" data-flag="assets/images/bahrain-flag-square.png">+971</option>
+                            </select>                                
+                            <svg class="w-3 h-3 text-[#707C8B] -ml-1 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
                         </div>
-                        <input type="number" placeholder="Enter your phone number" 
-                        class="w-full h-14 pl-28 pr-4 border border-[#E5E7EB] rounded-full text-[15px] focus:outline-none focus:border-blue-400 placeholder-[#999999]">
+                        <div class="h-6 w-[1px] bg-[#D1D5DB] mx-2"></div>
                     </div>
+                    <input type="number" placeholder="Enter your phone number" 
+                    class="w-full h-14 pl-32 pr-4 border border-[#E5E7EB] rounded-full text-[15px] focus:outline-none focus:border-blue-400 placeholder-[#999999]">
                 </div>
+
                 <div class="relative">
                     <label class="absolute -top-2.5 left-4 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">DrorPay business account ID</label>
                     <input type="text" placeholder="Enter Id (optional)" class="input-box-business-acc">

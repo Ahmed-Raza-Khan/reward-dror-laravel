@@ -14,7 +14,6 @@ const userData = [
     { usersingimg: "assets/images/user-img-new-5.jpg" , name: 'Mary kom', date: '2024-12-14', points: '254 Points', status: 'Active', color: 'bg-[#2DD5A5]' , img: "assets/images/new-business-dot-menu.svg" } 
 ];
 
-
 const businessContainer = document.getElementById('business-list');
 businessData.forEach(bus => {
     const row = document.createElement('div');
@@ -27,7 +26,7 @@ businessData.forEach(bus => {
             <span class="w-3 h-3 rounded-full ${bus.color}"></span>
             <span class="text-[13px] font-regular text-[#4C4C5C]">${bus.status}</span>
         </div>
-        <div class="text-right cursor-pointer px-2"><img src="${bus.img}"></img></div>
+        <div class="flex justify-center pr-2 cursor-pointer"><img src="${bus.img}" alt="action"></img></div>
     `;
     businessContainer.appendChild(row);
 });
@@ -50,7 +49,7 @@ userData.forEach(user => {
             <span class="w-3 h-3 rounded-full ${user.color}"></span>
             <span class="font-regular text-[#4C4C5C] text-[13px] ${user.status === 'In Active' ? 'text-pink-500' : 'text-gray-600'}">${user.status}</span>
         </div>
-        <div class="text-right cursor-pointer px-2"><img src="${user.img}"></img></div>
+        <div class="flex justify-center pr-2 cursor-pointer"><img src="${user.img}" alt="action"></img></div>
     `;
     usersContainer.appendChild(row);
 });
