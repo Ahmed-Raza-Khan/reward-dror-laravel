@@ -46,7 +46,7 @@
 
                 <div class="relative w-full max-w-md">
                     <label class="absolute -top-2.5 left-6 bg-white px-1 text-[14px] font-bold text-[#707C8B] z-1">
-                        Contact phone
+                        Contact phone <span class="text-[#FF0000]">*</span>
                     </label>
                     
                     <div class="relative flex items-center">
@@ -163,4 +163,5 @@
     </main>
 
     <script src="/assets/js/dashboard/business-api/business-api-detail-table.js"></script>
+    <script src="/assets/js/dashboard/business-api/business-copy-api-update-country.js"></script>
 @endsection
