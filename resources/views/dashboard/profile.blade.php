@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <main class="ml-64 flex-1 p-8 business-api-main-heading">
+    <main id="main-content" class="flex-1 p-8 transition-all duration-300 lg:ml-64 business-api-main-heading">
         <div class="w-full max-w-full h-140 mx-auto bg-white rounded-md shadow-lg border border-gray-100 overflow-hidden">
             <div class="px-6 py-4">
                 <h2 class="text-[35px] font-medium text-[#333333]">My Profile</h2>

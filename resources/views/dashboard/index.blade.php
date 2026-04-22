@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <main class="ml-64 flex-1 p-4">
+    <main id="main-content" class="flex-1 p-4 transition-all duration-300 lg:ml-64">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <div class="bg-[#FFFFFF] p-6 rounded-md shadow-sm border border-gray-50 flex flex-col justify-between">
                 <div class="chart-card-main-headings">

@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <main class="ml-64 flex-1 p-8 business-api-main-heading">
+    <main id="main-content" class="flex-1 p-8 transition-all duration-300 lg:ml-64 business-api-main-heading">
         <div class="bg-white w-full max-w-full p-8 rounded-lg shadow-sm min-h-[600px]">
             <div class="flex items-center gap-4 mb-8">
                 <button>

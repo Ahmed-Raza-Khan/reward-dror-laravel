@@ -3,7 +3,7 @@
 @section('title', 'Reward Dror - Business API Details')
 
 @section('content')
-    <main class="ml-64 flex-1 p-8 business-api-main-heading">
+    <main id="main-content" class="flex-1 p-8 transition-all duration-300 lg:ml-64 business-api-main-heading">
         <div class="max-w-full mx-auto bg-white rounded-xl shadow-sm border border-gray-100 p-8">
             <div class="flex justify-between items-center mb-6">
                 <div class="flex items-center gap-4">

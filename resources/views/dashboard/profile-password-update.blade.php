@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <main class="ml-64 flex-1 p-8 business-api-main-heading">
+    <main id="main-content" class="flex-1 p-8 transition-all duration-300 lg:ml-64 business-api-main-heading">
         <div class="w-full max-w-full bg-white rounded-lg shadow-md border border-gray-100 p-8 min-h-[600px]">
             <div class="flex items-center gap-3 mb-10 mt-4">
                 <a href="{{ url('/user-profile') }}" class="text-gray-800 hover:text-gray-600">

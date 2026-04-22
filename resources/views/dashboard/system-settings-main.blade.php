@@ -3,7 +3,7 @@
 @section('title', 'Reward Dror - System Settings')
 
 @section('content')
-    <main class="ml-64 flex-1 p-8">
+    <main id="main-content" class="flex-1 transition-all duration-300 lg:ml-64 max-w-full mx-auto bg-white p-12 rounded-lg shadow-sm border border-gray-100 system-settings-main-heading">
         <div class="max-w-full mx-auto bg-white p-12 rounded-lg shadow-sm border border-gray-100 system-settings-main-heading">
             <h1 class="text-[35px] font-medium text-[#333333] mb-8">System Settings</h1>
             <div class="border-t-custom mb-10"></div>

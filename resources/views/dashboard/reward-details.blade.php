@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <main class="ml-64 flex-1 p-8">
+    <main id="main-content" class="flex-1 p-8 transition-all duration-300 lg:ml-64">
         <div class="max-w-full mx-auto">
             <div class="bg-white rounded-xl p-7 shadow">
                 <div class="flex items-center justify-between mb-6">

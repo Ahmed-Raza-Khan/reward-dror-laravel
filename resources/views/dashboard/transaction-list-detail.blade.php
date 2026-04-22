@@ -3,7 +3,7 @@
 @section('title', 'Reward Dror - Transactions List Details')
 
 @section('content')
-    <main class="ml-64 flex-1 p-8 business-api-main-heading">
+    <main id="main-content" class="flex-1 p-8 transition-all duration-300 lg:ml-64 business-api-main-heading">
         <div class="bg-gray-50 p-1 min-h-screen flex justify-center items-start">
             <div class="w-full max-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
                 <div class="p-6">

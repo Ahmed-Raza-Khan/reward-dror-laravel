@@ -3,7 +3,7 @@
 @section('title', 'Reward Dror - Fee Configuration')
 
 @section('content')
-    <main class="ml-64 flex-1 p-8">
+    <main id="main-content" class="max-w-full mx-auto flex-1 p-8 transition-all duration-300 lg:ml-64 business-api-main-heading">
         <div class="max-w-full mx-auto bg-white p-8 rounded-lg shadow-sm border border-gray-100">
             <h2 class="text-[35px] font-medium text-[#333333] mb-6 fee-configration-main-heading">Fee Configuration</h2>
             
