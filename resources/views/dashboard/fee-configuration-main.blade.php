@@ -89,14 +89,16 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="previewModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
             <div class="bg-[#FFFFFF] rounded-xl shadow-2xl w-full max-w-5xl relative overflow-hidden">
-                <button onclick="toggleModal()" class="absolute top-6 right-6">
+                <button onclick="toggleModal()" class="absolute top-6 right-6 z-10">
                     <img src="assets/images/fee-config-close-background.svg" alt="close-fee-screen">
                 </button>
-                <div class="p-8">
+
+                <div class="p-8 max-h-[90vh] overflow-y-auto custom-scrollbar">
                     <h2 class="text-[45px] font-medium text-[#333333] mb-8 fee-configration-main-heading">Preview Screen</h2>
+                    
                     <div class="flex flex-col md:flex-row gap-12">
                         <div class="flex-1 flex flex-col items-center">
                             <div class="w-80 mb-8">
@@ -128,22 +130,33 @@
                         <div class="flex-1 fee-configration-main-heading">
                             <h1 class="text-[45px] font-regular text-[#333333] mb-2">Starbucks eGift Card</h1>
                                 <p class="text-[#404A60] font-regular text-[15px] mb-4"><span class="font-bold">Redemption:</span> Online & In-Store</p>
-                                <p class="text-[#333333] font-regular text-[19px] mb-4">£5 to £150</p>                            
+                                <p class="text-[#333333] font-regular text-[19px] mb-4">£5 to £150</p>
                             <hr class="mb-6">
                             <div class="flex items-start gap-3 mb-6">
                                 <div class="bg-[#0077B6] p-2 rounded-full mt-1">
                                     <img src="assets/images/fee-location-icon.svg" class="h-4 w-4" alt="location">
                                 </div>
                                 <p class="text-[13px] text-[#404A60] font-medium leading-tight mt-2">Geographic restrictions apply. Review the Terms for details.</p>
-                            </div>
+                            </div>                        
                             <div class="text-[15px] text-[#333333] font-regular space-y-4 mb-6">
-                                <p>
-                                    When you give a Starbucks Code, you're giving more than just a gift or a token of appreciation. 
-                                    You're connecting with customers and employees by providing them something that's practical 
-                                    and meaningful from a widely-recognized brand. 
-                                    <span class="text-[15px] text-[#FF7F32] font-medium cursor-pointer">.... Readmore</span>
+                                <p id="descriptionText">
+                                    <span>
+                                        When you give a Starbucks Code, you're giving more than just a gift or a token of appreciation. 
+                                        You're connecting with customers and employees by providing them something that's practical 
+                                        and meaningful from a widely-recognized brand.
+                                    </span>
+                                    <span id="moreText" class="hidden">
+                                        <br><br>
+                                        This gift allows recipients to enjoy their favorite beverages and treats at thousands of locations. 
+                                        It is the perfect way to show gratitude or provide a small perk that brightens someone's day.
+                                        Additional terms may apply depending on the region of use.
+                                    </span>
+                                    <button type="button" onclick="toggleDescription()" id="readMoreBtn" class="text-[15px] text-[#FF7F32] font-medium cursor-pointer inline-block ml-1">
+                                        .... Readmore
+                                    </button>
                                 </p>
                             </div>
+
                             <div class="flex items-center gap-3 mb-8 fee-configration-main-tick-fee">
                                 <input type="checkbox" id="terms" class="w-5 h-5 accent-[#FF7F32] cursor-pointer">
                                 <label for="terms" class="text-[17px] text-[#333333] font-regular">I Agree with <span class="text-[17px] text-[#0077B6] font-semibold underline cursor-pointer">terms & Condition</span></label>
